@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <app-header v-bind:result="number"></app-header>
+    <app-content v-on:increase="addNumber"></app-content>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var appHeader = {
+      template: '<h1>{{ result }}</h1>',
+      props: ['result'],
+    };
+    var appContent = {
+      template: '<button v-on:click="event">Click Me</button>',
+      methods: {
+        event: function() {
+          this.$emit('increase', 2)
+        },
+      },
+    };
+
+    new Vue({
+      el: '#app',
+      data: {
+        number: 10,
+      },
+      components: {
+        'app-header': appHeader,
+        'app-content': appContent,
+      },
+      methods: {
+        addNumber: function(value) {
+          this.number += value;
+        },
+      },
+    })
+  </script>
+</body>
+</html>
