@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">{{ num }}</div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    /*
+    computed, watch 모두 data에 의존적인 것은 동일
+    computed -> data 변화에 따른 새로운 data 생성
+    watch -> data 변화 시 로직 실행
+    */
+    new Vue({
+      el: '#app',
+      data: {
+        num: 10,
+      },
+      // 가벼운 동작들
+      // 캐싱 등 유리
+      computed: {
+        doublenum: function() {
+          return this.num * 2;
+        },
+      },
+      // 무거운 동작들 ex) HTTP 요청
+      // 매번 실행되기엔 부담스러운 것들
+      watch: {
+        num: function(newValue, oldValue) {
+          this.fetchUserByNumber(newValue);
+        },
+      },
+      methods: {
+        fetchUserByNumber: function(num) {
+          console.log(num);
+          axios.get(num);
+        },
+      },
+    });
+  </script>
+</body>
+</html>
