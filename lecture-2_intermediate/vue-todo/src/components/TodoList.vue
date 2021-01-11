@@ -1,16 +1,17 @@
 <template>
   <div>
     <ul>
-      <!-- v-for / v-bind:key -->
-      <li class="shadow" v-for="(todoItem, index) in todoItems" v-bind:key="todoItem">
-        <!-- v-bind:class -->
+      <!-- v-for="([element], [index])" -->
+      <!-- v-bind:key="[element]" -->
+      <li class="shadow" v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item">
+        <!-- v-bind:class="{ [className]: boolean }" -->
         <i 
           class="checkBtn fa fa-check" 
           aria-hidden="true" 
-          v-bind:class="{checkBtnCompleted: todoItem.completed}" 
+          v-bind:class="{ checkBtnCompleted: todoItem.completed }" 
           v-on:click="toggleComplete(todoItem, index)">
         </i>
-        <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+        <span v-bind:class="{ textCompleted: todoItem.completed }">{{ todoItem.item }}</span>
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </span>
@@ -47,7 +48,7 @@ export default {
       console.log('^toggleComplete(), todoItem: ', todoItem, index)
 
       todoItem.completed = !todoItem.completed
-      // localStorage Update = 1. remove / 2. set
+      // localStorage Update => 1. remove / 2. set
       localStorage.removeItem(todoItem.item)
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
     }
