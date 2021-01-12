@@ -20,12 +20,8 @@ export default {
       console.log('^addTodo()')
 
       if (this.newTodoItem !== '') {
-        // TODO: save all status needed
-        var obj = { completed: false, item: this.newTodoItem }
-
-        // localStorage.setItem([key], [value])
-        // JSON.stringify
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj))
+        // this.$emit('[event name]', this.newTodoItem)
+        this.$emit('addTodoItem', this.newTodoItem)
 
         this.clearInput()
       }
