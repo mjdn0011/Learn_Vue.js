@@ -14,8 +14,8 @@ export default {
   methods: {
     clearTodo: function() {
       this.$emit('removeItems')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -32,7 +32,7 @@ export default {
       console.log('^toggleComplete(), todoItem: ', todoItem)
 
       this.$emit('completeItem', todoItem)
-    }
+    },
   },
 }
 </script>
