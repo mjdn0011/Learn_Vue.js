@@ -6,7 +6,7 @@
     <!-- v-on:[event(child component)]="[function(parent component)]" -->
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
     <!-- v-bind:[props(child component)]="[props(parent component)]"-->
-    <TodoList v-bind:propsData="todoItems" v-on:removeItem="removeOneItem" v-on:completeItem="checkItem"></TodoList>
+    <TodoList v-bind:propsData="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
     <TodoFooter v-on:removeItems="removeAllItems"></TodoFooter>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
       localStorage.setItem(todoItem, JSON.stringify(obj))
       this.todoItems.push(obj)
     },
-    checkItem: function(todoItem) {
+    toggleOneItem: function(todoItem) {
       todoItem.completed = !todoItem.completed
       // localStorage Update => 1. remove / 2. set
       localStorage.removeItem(todoItem.item)

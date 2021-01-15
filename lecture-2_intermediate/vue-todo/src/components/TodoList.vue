@@ -28,10 +28,10 @@ export default {
 
       this.$emit('removeItem', todoItem, index)    
     },
-    toggleComplete: function(todoItem) {
-      console.log('^toggleComplete(), todoItem: ', todoItem)
+    toggleComplete: function(todoItem, index) {
+      console.log('^toggleComplete(), todoItem: ', todoItem, index)
 
-      this.$emit('completeItem', todoItem)
+      this.$emit('toggleItem', todoItem, index)
     },
   },
 }
