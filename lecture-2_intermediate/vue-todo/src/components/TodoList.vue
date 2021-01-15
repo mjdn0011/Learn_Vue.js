@@ -24,13 +24,9 @@ export default {
   props: ['propsData'],
   methods: {
     removeTodo: function(todoItem, index) {
-      console.log('^removeTodo(), todoItem: ', todoItem, index)
-
       this.$emit('removeItem', todoItem, index)    
     },
     toggleComplete: function(todoItem, index) {
-      console.log('^toggleComplete(), todoItem: ', todoItem, index)
-
       this.$emit('toggleItem', todoItem, index)
     },
   },

@@ -17,8 +17,6 @@ export default {
   },
   methods: {
     addTodo: function() {
-      console.log('^addTodo()')
-
       if (this.newTodoItem !== '') {
         // this.$emit('[event name]', this.newTodoItem)
         this.$emit('addTodoItem', this.newTodoItem)
@@ -27,8 +25,6 @@ export default {
       }
     },
     clearInput: function() {
-      console.log('^clearInput()')
-
       this.newTodoItem = ''
     },
   },

@@ -49,9 +49,11 @@ export default {
       localStorage.setItem(todoItem, JSON.stringify(obj))
       this.todoItems.push(obj)
     },
-    toggleOneItem: function(todoItem) {
-      todoItem.completed = !todoItem.completed
-      // localStorage Update => 1. remove / 2. set
+    toggleOneItem: function(todoItem, index) {
+      // todoItem.completed = !todoItem.completed
+      this.todoItems[index].completed = !this.todoItems[index].completed
+
+      // Update item in localStorage  => 1. remove / 2. set
       localStorage.removeItem(todoItem.item)
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
     },
