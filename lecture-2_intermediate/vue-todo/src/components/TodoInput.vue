@@ -13,7 +13,12 @@
         you can use custom content here to overwrite
         default content
       -->
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">
+        Alert!
+        <i class="closeModalBtn fa fa-times" aria-hidden="true" @click="showModal = false"></i>
+      </h3>
+      <div slot="body">Type Something</div>
+      <span slot="footer">copy right</span>
     </Modal>
   </div>
 </template>
@@ -25,6 +30,7 @@ export default {
   data: function() {
     return {
       newTodoItem: "",
+      showModal: false,
     }
   },
   methods: {
@@ -34,6 +40,8 @@ export default {
         this.$emit('addTodoItem', this.newTodoItem)
 
         this.clearInput()
+      } else {
+        this.showModal = !this.showModal
       }
     },
     clearInput: function() {
@@ -70,5 +78,8 @@ input:focus {
 .addBtn {
   color: white;
   vertical-align: middle;
+}
+.closeModalBtn {
+  color: #42b983;
 }
 </style>
