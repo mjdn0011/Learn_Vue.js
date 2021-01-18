@@ -1,3 +1,5 @@
+// Presentational Component
+
 <template>
   <div class="clearAllContainer">
     <span class="clearAllBtn" v-on:click="clearTodo">
@@ -10,7 +12,7 @@
 export default {
   methods: {
     clearTodo: function() {
-      this.$emit('removeItems')
+      this.$emit('clearAll')
     },
   },
 }

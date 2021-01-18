@@ -7,7 +7,7 @@
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
     <!-- v-bind:[props(child component)]="[props(parent component)]"-->
     <TodoList v-bind:propsData="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
-    <TodoFooter v-on:removeItems="removeAllItems"></TodoFooter>
+    <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
   </div>
 </template>
 
@@ -62,7 +62,7 @@ export default {
       localStorage.removeItem(todoItem.item)
       this.todoItems.splice(index, 1);
     },
-    removeAllItems: function() {
+    clearAllItems: function() {
       // localStorage.clear()
       localStorage.clear()
       this.todoItems = []

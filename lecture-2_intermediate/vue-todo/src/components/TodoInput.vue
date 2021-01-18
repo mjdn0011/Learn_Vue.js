@@ -1,3 +1,5 @@
+// Presentational Component
+
 <template>
   <div class="inputBox shadow">
     <!-- v-model -->
