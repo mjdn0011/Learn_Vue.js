@@ -41,11 +41,9 @@ export default {
   },
   methods: {
     addOneItem: function(todoItem) {
-      // TODO: save all status(key: value) what you need
       var obj = { completed: false, item: todoItem }
 
-      // localStorage.setItem([key], [value])
-      /* JSON.stringify */
+      // "localStorage.setItem([key], [value])"
       localStorage.setItem(todoItem, JSON.stringify(obj))
       this.todoItems.push(obj)
     },
@@ -58,12 +56,11 @@ export default {
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
     },
     removeOneItem: function(todoItem, index) {
-      // localStorage.removeItem([key])
+      // "localStorage.removeItem([key])"
       localStorage.removeItem(todoItem.item)
       this.todoItems.splice(index, 1);
     },
     clearAllItems: function() {
-      // localStorage.clear()
       localStorage.clear()
       this.todoItems = []
     },
