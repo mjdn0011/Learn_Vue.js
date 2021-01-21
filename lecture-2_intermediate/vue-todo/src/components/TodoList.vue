@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <ul>
+    <transition-group name="list" tag="ul">
       <!-- v-for="([element], [index])" / v-bind:key="[element]"-->
       <li class="shadow" v-for="(todoItem, index) in propsData" v-bind:key="todoItem.item">
         <!-- v-bind:class="{ [className]: boolean }" -->
@@ -17,7 +17,7 @@
           <i class="fa fa-trash" aria-hidden="true"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -70,5 +70,17 @@ li {
 .textCompleted {
   text-decoration: line-through;
   color: #b3adad;
+}
+/* list item transition effect */
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
