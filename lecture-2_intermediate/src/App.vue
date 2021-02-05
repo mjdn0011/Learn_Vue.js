@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     addOneItem: function(todoItem) {
-      var obj = { completed: false, item: todoItem }
+      const obj = { completed: false, item: todoItem }
 
       // "localStorage.setItem([key], [value])"
       localStorage.setItem(todoItem, JSON.stringify(obj))
