@@ -4,7 +4,7 @@
   <div>
     <transition-group name="list" tag="ul">
       <!-- v-for="([element], [index])" / v-bind:key="[element]"-->
-      <li class="shadow" v-for="(todoItem, index) in propsData" v-bind:key="todoItem.item">
+      <li class="shadow" v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="todoItem.item">
         <!-- v-bind:class="{ [className]: boolean }" -->
         <i 
           class="checkBtn fa fa-check" 
