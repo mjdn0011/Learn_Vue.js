@@ -1,5 +1,6 @@
-# vue-study
-Repo for Studying Vue
+# MJDN's FrontEnd TextBook
 
-### Extensions for Vue
-- Vue.js Devtools (Chrome)
+## 1. Angular.js
+## 2. React.js
+
+## 3. Vue.js
