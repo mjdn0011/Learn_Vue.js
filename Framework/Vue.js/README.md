@@ -9,7 +9,6 @@
 
 
 * 복잡한 애플리케이션 컴포넌트들을 효율적으로 관리
-* Vuex 라이브러리의 등장 배경 - Flux 패턴
 * Vuex 라이브러리의 주요 속성 - `state(data)`, `getters(computed)`, `mutations(method)`, `actions(async method)`
 * Helper 기능
 * Vuex 프로젝트를 구조화하는 방법과 모듈 구조화 방법 소개
